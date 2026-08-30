@@ -1,17 +1,17 @@
 [![HACS Default](https://img.shields.io/badge/HACS-Default-blue.svg)](https://github.com/hacs/default)
-[![GitHub release](https://img.shields.io/github/release/myTselection/EVChargingStations.svg)](https://github.com/myTselection/EVChargingStations/releases)
-![GitHub repo size](https://img.shields.io/github/repo-size/myTselection/EVChargingStations.svg)
+[![GitHub release](https://img.shields.io/github/release/myTselectionPublic/EVChargingStations.svg)](https://github.com/myTselectionPublic/EVChargingStations/releases)
+![GitHub repo size](https://img.shields.io/github/repo-size/myTselectionPublic/EVChargingStations.svg)
 
-[![GitHub issues](https://img.shields.io/github/issues/myTselection/EVChargingStations.svg)](https://github.com/myTselection/EVChargingStations/issues)
-[![GitHub last commit](https://img.shields.io/github/last-commit/myTselection/EVChargingStations.svg)](https://github.com/myTselection/EVChargingStations/commits/master)
-[![GitHub commit activity](https://img.shields.io/github/commit-activity/m/myTselection/EVChargingStations.svg)](https://github.com/myTselection/EVChargingStations/graphs/commit-activity)
+[![GitHub issues](https://img.shields.io/github/issues/myTselectionPublic/EVChargingStations.svg)](https://github.com/myTselectionPublic/EVChargingStations/issues)
+[![GitHub last commit](https://img.shields.io/github/last-commit/myTselectionPublic/EVChargingStations.svg)](https://github.com/myTselectionPublic/EVChargingStations/commits/master)
+[![GitHub commit activity](https://img.shields.io/github/commit-activity/m/myTselectionPublic/EVChargingStations.svg)](https://github.com/myTselectionPublic/EVChargingStations/graphs/commit-activity)
 
 # Public EV Charging Stations Home Assistant integration
 Home Assistant custom component to create sensors with information on the available EV Charging Station in a chosen area. This custom component has been built from the ground up to bring public site data to compare and save on your EV prices and integrate this information into Home Assistant. This integration is built against the public websites provided by Eneco.com and other similar sites. Sensors will be created for nearest stations of different speeds and availability. 
 
 **Currently supporting charging stations in EU from [Eneco](https://www.eneco-emobility.com/be-nl/chargemap) and [Shell](https://ui-map.shellrecharge.com/).**
 
-This integration is in no way affiliated with Eneco.com. This integration is based on my other [Carbu.com](https://github.com/myTselection/Carbu_com) custom integration, which brings similar functionality for fuel/gas stations.
+This integration is in no way affiliated with Eneco.com. This integration is based on my other [Carbu.com](https://github.com/myTselectionPublic/Carbu_com) custom integration, which brings similar functionality for fuel/gas stations.
 
 Large parts of the code base has been based on the [Shell Recharge](https://github.com/cyberjunky/home-assistant-shell_recharge) custom integration. The same functionality is available, but has been extended to support Eneco charging stations and to automatically find the stations that matches criteria.
 
@@ -22,7 +22,7 @@ Large parts of the code base has been based on the [Shell Recharge](https://gith
 For electricity price expectations [this Entso-E HACS integration](https://github.com/JaccoR/hass-entso-e) can be used.
 
 
-<p align="center"><img src="https://raw.githubusercontent.com/myTselection/EVChargingStations/master/logo.png"/></p>
+<p align="center"><img src="https://raw.githubusercontent.com/myTselectionPublic/EVChargingStations/master/logo.png"/></p>
 
 With this integration it will be possible to:
 - subscribe to specific charging point, to make it possible to get notified once available
@@ -46,7 +46,7 @@ TODO : find cheapest charging station:
 
 ## Installation
 - [HACS](https://hacs.xyz/): search for Carbu in the default HACS repo list or use below button to navigate directly to it on your local system and install via HACS. 
-   -    [![Open your Home Assistant instance and open the repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg?style=flat-square)](https://my.home-assistant.io/redirect/hacs_repository/?owner=myTselection&repository=EVChargingStations&category=integration)
+   -    [![Open your Home Assistant instance and open the repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg?style=flat-square)](https://my.home-assistant.io/redirect/hacs_repository/?owner=myTselectionPublic&repository=EVChargingStations&category=integration)
 - Restart Home Assistant
 - Add 'EV Charging Stations' integration via HA Settings > 'Devices and Services' > 'Integrations'
 - Choose the type of charging station to setup: nearest public station, specific station or Shell station with credentials.
@@ -61,7 +61,7 @@ TODO : find cheapest charging station:
 
 ### Setup screenshot
 
-*  ![setup config](https://github.com/myTselection/EVChargingStations/blob/629be913c9e8f06fdbcc55040880cb83ae2fe785/setup.png) 
+*  ![setup config](https://github.com/myTselectionPublic/EVChargingStations/blob/629be913c9e8f06fdbcc55040880cb83ae2fe785/setup.png) 
 
 
 
@@ -124,7 +124,7 @@ TODO : find cheapest charging station:
     
 ### Services / Actions
 * Find the EV Charging Station nearest to a given location and meeting specific criteria.
-   * ![Service find nearest](https://github.com/myTselection/EVChargingStations/blob/b5ee28f8f46687bad39e5207f400f77a8001bdc7/service_find_nearest.png)
+   * ![Service find nearest](https://github.com/myTselectionPublic/EVChargingStations/blob/b5ee28f8f46687bad39e5207f400f77a8001bdc7/service_find_nearest.png)
    * <details><summary>It will return a JSON such as example below:</summary>
 
       ```
@@ -261,13 +261,13 @@ TODO : find cheapest charging station:
 
 
 ## Status
-Proof of concept status, still validating and extending functionalities. [Issues](https://github.com/myTselection/EVChargingStations/issues) section in GitHub.
+Proof of concept status, still validating and extending functionalities. [Issues](https://github.com/myTselectionPublic/EVChargingStations/issues) section in GitHub.
 
 ## Technical pointers
 The main logic and API connection related code can be found within source code Carbu.com/custom_components/Carbu.com:
-- [sensor.py](https://github.com/myTselection/EVChargingStations/blob/master/custom_components/EVChargingStations/sensor.py)
-- [coordinator.py](https://github.com/myTselection/EVChargingStations/blob/master/custom_components/EVChargingStations/coordinator.py)
-- [evrecharge.py EVApi](https://github.com/myTselection/EVChargingStations/blob/master/custom_components/EVChargingStations/evrecharge/__init__.py)
+- [sensor.py](https://github.com/myTselectionPublic/EVChargingStations/blob/master/custom_components/EVChargingStations/sensor.py)
+- [coordinator.py](https://github.com/myTselectionPublic/EVChargingStations/blob/master/custom_components/EVChargingStations/coordinator.py)
+- [evrecharge.py EVApi](https://github.com/myTselectionPublic/EVChargingStations/blob/master/custom_components/EVChargingStations/evrecharge/__init__.py)
 
 All other files just contain boilerplat code for the integration to work wtihin HA or to have some constants/strings/translations.
 
