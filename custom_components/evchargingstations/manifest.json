@@ -11,6 +11,6 @@
   "iot_class": "cloud_polling",
   "issue_tracker": "https://github.com/myTselectionPublic/EVChargingStations/issues",
   "loggers": ["pywaze", "homeassistant.helpers.location"],
-  "requirements": ["pywaze==1.2.0"],
+  "requirements": ["pywaze==1.2.1"],
   "version": "0.2.2"
 }
