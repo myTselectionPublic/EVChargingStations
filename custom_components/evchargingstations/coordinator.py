@@ -5,6 +5,7 @@ import asyncio
 from asyncio.exceptions import CancelledError
 
 from aiohttp.client_exceptions import ClientError
+from httpx import HTTPError
 from homeassistant.core import HomeAssistant
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
@@ -311,6 +312,10 @@ class StationsPublicDataUpdateCoordinator(DataUpdateCoordinator):
                 latestRouteName = station.route_name
 
 async def enrichStationRouteDetails(station: EnecoChargingStation, origin_coordinates, routeCalculatorClient: WazeRouteCalculator):
+    """Add optional route details without failing the charging-station update."""
+    station.route_distance = None
+    station.route_duration = None
+    station.route_name = None
     origin_coordinates_str = f"{origin_coordinates.get('lat')},{origin_coordinates.get('lon')}"
     destination_coordinates_str = f"{station.coordinates.lat},{station.coordinates.lng}"
     try:
@@ -338,6 +343,13 @@ async def enrichStationRouteDetails(station: EnecoChargingStation, origin_coordi
             station.route_distance = round(route.distance,2) if route.distance else route.distance
             station.route_duration = round(route.duration,2) if route.duration else route.duration
             station.route_name = route.name
-        await asyncio.sleep(SECONDS_BETWEEN_API_CALLS)
     except ValueError:
-        return
+        pass
+    except (WRCError, HTTPError, ClientError, TimeoutError) as exc:
+        _LOGGER.warning(
+            "Waze route lookup failed for charging station %s; "
+            "charging-station data will still update without route details: %s",
+            station.id,
+            exc,
+        )
+    await asyncio.sleep(SECONDS_BETWEEN_API_CALLS)
