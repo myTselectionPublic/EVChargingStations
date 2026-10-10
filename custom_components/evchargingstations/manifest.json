@@ -1,4 +1,6 @@
 {
+  "domain": "evchargingstations",
+  "name": "EV Charging Stations",
   "codeowners": [
     "@myTselection",
     "@myTselectionPublic"
@@ -6,7 +8,6 @@
   "config_flow": true,
   "dependencies": [],
   "documentation": "https://github.com/myTselectionPublic/EVChargingStations",
-  "domain": "evchargingstations",
   "integration_type": "device",
   "iot_class": "cloud_polling",
   "issue_tracker": "https://github.com/myTselectionPublic/EVChargingStations/issues",
@@ -14,7 +15,6 @@
     "pywaze",
     "homeassistant.helpers.location"
   ],
-  "name": "EV Charging Stations",
   "requirements": [
     "pywaze>=1.2.4"
   ],
