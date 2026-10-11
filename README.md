@@ -59,6 +59,14 @@ TODO : find cheapest charging station:
 
 
 
+### Waze route lookup errors
+
+Version 0.2.4 pins `pywaze==1.2.4`, which retries Waze HTTP 403 responses with a fresh browser session. See the [upstream fix](https://github.com/eifinger/pywaze/issues/110).
+
+After updating, restart Home Assistant to load the new integration code and dependency. For a manual installation, copy the entire `custom_components/evchargingstations` directory into `/config/custom_components/evchargingstations`, including `manifest.json` and `coordinator.py`, before restarting.
+
+If Waze still rejects a route request, charging-station data continues updating, while `route_distance`, `route_duration`, and `route_name` are empty. A traceback reporting an unexpected coordinator error from `enrichStationRouteDetails` indicates the running code does not include the route-error handler; check that the updated files were deployed and Home Assistant was restarted.
+
 ### Setup screenshot
 
 *  ![setup config](https://github.com/myTselectionPublic/EVChargingStations/blob/629be913c9e8f06fdbcc55040880cb83ae2fe785/setup.png) 
